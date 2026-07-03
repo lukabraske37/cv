@@ -292,6 +292,15 @@
     line-height: 1.5;
   }
 
+  .card-points li a {
+    color: var(--accent2);
+    text-decoration: underline;
+    text-decoration-color: rgba(79,195,247,0.4);
+    transition: color 0.2s;
+  }
+
+  .card-points li a:hover { color: var(--accent); }
+
   .card-points li::before {
     content: '→';
     position: absolute;
@@ -492,7 +501,7 @@
       <div class="card">
         <ul class="card-points" id="web-points">
           <li>Razvoj web projekata sa C#, ASP.NET, SQL i MySQL</li>
-          <li>Lični projekti: AI Council, AI Task Manager, AI Note Summarizer, Mini Booking System, Smart Notes REST API</li>
+          <li>Lični projekti: AI Council, <a href="https://github.com/lukabraske37/ai-task-manager" target="_blank">AI Task Manager</a>, <a href="https://github.com/lukabraske37/ai-note-summarizer" target="_blank">AI Note Summarizer</a>, <a href="https://github.com/lukabraske37/mini-booking-system" target="_blank">Mini Booking System</a>, <a href="https://github.com/lukabraske37/smart-notes-api" target="_blank">Smart Notes REST API</a></li>
           <li>Frontend sa HTML, CSS, JavaScript i jQuery</li>
           <li>Baze podataka sa Supabase-om</li>
           <li>Deployment sajtova putem Cloudflare-a</li>
@@ -662,7 +671,7 @@ const content = {
     labelWeb: 'Iskustvo — Web Development',
     webPoints: [
       'Razvoj web projekata sa C#, ASP.NET, SQL i MySQL',
-      'Lični projekti: AI Council, AI Task Manager, AI Note Summarizer, Mini Booking System, Smart Notes REST API',
+      'Lični projekti: AI Council, <a href="https://github.com/lukabraske37/ai-task-manager" target="_blank">AI Task Manager</a>, <a href="https://github.com/lukabraske37/ai-note-summarizer" target="_blank">AI Note Summarizer</a>, <a href="https://github.com/lukabraske37/mini-booking-system" target="_blank">Mini Booking System</a>, <a href="https://github.com/lukabraske37/smart-notes-api" target="_blank">Smart Notes REST API</a>',
       'Frontend sa HTML, CSS, JavaScript i jQuery',
       'Baze podataka sa Supabase-om',
       'Deployment sajtova putem Cloudflare-a',
@@ -746,7 +755,7 @@ const content = {
     labelWeb: 'Experience — Web Development',
     webPoints: [
       'Building web projects with C#, ASP.NET, SQL and MySQL',
-      'Personal projects: AI Council, AI Task Manager, AI Note Summarizer, Mini Booking System, Smart Notes REST API',
+      'Personal projects: AI Council, <a href="https://github.com/lukabraske37/ai-task-manager" target="_blank">AI Task Manager</a>, <a href="https://github.com/lukabraske37/ai-note-summarizer" target="_blank">AI Note Summarizer</a>, <a href="https://github.com/lukabraske37/mini-booking-system" target="_blank">Mini Booking System</a>, <a href="https://github.com/lukabraske37/smart-notes-api" target="_blank">Smart Notes REST API</a>',
       'Frontend development with HTML, CSS, JavaScript and jQuery',
       'Database work with Supabase',
       'Website deployment via Cloudflare',
