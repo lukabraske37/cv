@@ -492,6 +492,7 @@
       <div class="card">
         <ul class="card-points" id="web-points">
           <li>Razvoj web projekata sa C#, ASP.NET, SQL i MySQL</li>
+          <li>Lični projekti: AI Council, AI Task Manager, AI Note Summarizer, Mini Booking System, Smart Notes REST API</li>
           <li>Frontend sa HTML, CSS, JavaScript i jQuery</li>
           <li>Baze podataka sa Supabase-om</li>
           <li>Deployment sajtova putem Cloudflare-a</li>
@@ -517,6 +518,7 @@
           <li>Prezentacija finalnog rešenja žiriju</li>
         </ul>
         <div><span class="badge silver">🥈 2. mesto</span></div>
+        <div style="margin-top: 10px;"><a href="https://thylala.itch.io/yebetel-game-jam" target="_blank" class="link-chip"><span class="dot"></span>Brufen na itch.io</a></div>
       </div>
 
       <div class="card">
@@ -538,10 +540,10 @@
           <div class="card-date">—</div>
         </div>
         <ul class="card-points" id="mindwave-points">
-          <li>Ulazak u finale sa timskim projektom</li>
-          <li>Rad na konceptu i razvoju rešenja u konkurentskom okruženju</li>
+          <li>Timski rad na konceptu i razvoju rešenja u konkurentskom okruženju</li>
+          <li>Prijava i učešće sa timskim projektom</li>
         </ul>
-        <div><span class="badge finalist">Finalist</span></div>
+        <div><span class="badge" id="mindwave-badge">Učesnik</span></div>
       </div>
 
     </div>
@@ -551,6 +553,18 @@
   <div class="section">
     <div class="section-label" id="label-ai">AI / Automatizacija</div>
     <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title" id="aic-title">AI Council</div>
+          <div class="card-date" id="aic-date">Lični projekat</div>
+        </div>
+        <div class="card-sub" id="aic-sub">Desktop app · Electron · Multi-AI browser</div>
+        <ul class="card-points" id="aic-points">
+          <li>Pokreće više AI asistenata (ChatGPT, Claude, Gemini, Grok, Perplexity, Copilot) uporedo, svaki u svom panelu</li>
+          <li>Odvojena sesija po panelu, tako da nalozi ne mešaju kolačiće/login</li>
+          <li>Sačuvani rasporedi panela (Research / Writing / Mixed) i perzistentno stanje prozora</li>
+        </ul>
+      </div>
       <div class="card">
         <ul class="card-points" id="ai-points">
           <li>Svakodnevna upotreba AI alata za ubrzano učenje, razvoj i optimizaciju radnog procesa</li>
@@ -569,9 +583,11 @@
       <div class="card">
         <ul class="card-points" id="content-points">
           <li>Upravljanje TikTok poslovnim nalogom — 1M+ pregleda u prvom mesecu</li>
-          <li>Rast YouTube kanala (@STTStepsThroughTime)</li>
+          <li>Vođenje dva YouTube kanala sa istorijskim sadržajem — Steps Through Time (EN) i Steps through time (SR)</li>
           <li>Video montaža u DaVinci Resolve-u</li>
           <li>Grafički rad u Affinity Photo</li>
+          <li>Vođenje društvenih mreža i marketing za lokalne biznise (Bambola Pizzeria, Keramika España)</li>
+          <li>Izrada i isporuka web sajta za klijenta — dizajn, razvoj, deployment</li>
         </ul>
       </div>
     </div>
@@ -596,6 +612,11 @@
       <span class="skill-tag">DaVinci Resolve</span>
       <span class="skill-tag">Affinity Photo</span>
       <span class="skill-tag">Miro</span>
+      <span class="skill-tag">React</span>
+      <span class="skill-tag">Node.js</span>
+      <span class="skill-tag">Electron</span>
+      <span class="skill-tag">OpenAI API</span>
+      <span class="skill-tag">Render</span>
       <span class="skill-tag" id="skill-team">Timski rad</span>
       <span class="skill-tag" id="skill-english">Engleski jezik</span>
     </div>
@@ -641,6 +662,7 @@ const content = {
     labelWeb: 'Iskustvo — Web Development',
     webPoints: [
       'Razvoj web projekata sa C#, ASP.NET, SQL i MySQL',
+      'Lični projekti: AI Council, AI Task Manager, AI Note Summarizer, Mini Booking System, Smart Notes REST API',
       'Frontend sa HTML, CSS, JavaScript i jQuery',
       'Baze podataka sa Supabase-om',
       'Deployment sajtova putem Cloudflare-a',
@@ -653,15 +675,24 @@ const content = {
       'Prezentacija finalnog rešenja žiriju'
     ],
     mindwave: [
-      'Ulazak u finale sa timskim projektom',
-      'Rad na konceptu i razvoju rešenja u konkurentskom okruženju'
+      'Timski rad na konceptu i razvoju rešenja u konkurentskom okruženju',
+      'Prijava i učešće sa timskim projektom'
     ],
+    mindwaveBadge: 'Učesnik',
     makeitday: [
       'Radionica "Napravi svoj prvi AI chatbot" — Univerzitet Metropolitan',
       'Praktičan rad na izgradnji AI chatbot-a od nule',
       'Takmičenje sa ostalim učesnicima i prezentacija rešenja'
     ],
     labelAI: 'AI / Automatizacija',
+    aicTitle: 'AI Council',
+    aicDate: 'Lični projekat',
+    aicSub: 'Desktop app · Electron · Multi-AI browser',
+    aicPoints: [
+      'Pokreće više AI asistenata (ChatGPT, Claude, Gemini, Grok, Perplexity, Copilot) uporedo, svaki u svom panelu',
+      'Odvojena sesija po panelu, tako da nalozi ne mešaju kolačiće/login',
+      'Sačuvani rasporedi panela (Research / Writing / Mixed) i perzistentno stanje prozora'
+    ],
     aiPoints: [
       'Duboko razumevanje AI koncepta, alata i arhitektura — primenjeno u praksi svakodnevno',
       'Više privatnih AI projekata u razvoju — automatizacije, eksperimentalni alati i sistemi',
@@ -672,9 +703,11 @@ const content = {
     labelContent: 'Kreiranje sadržaja',
     contentPoints: [
       'Upravljanje TikTok poslovnim nalogom — 1M+ pregleda u prvom mesecu',
-      'Rast YouTube kanala (@STTStepsThroughTime)',
+      'Vođenje dva YouTube kanala sa istorijskim sadržajem — Steps Through Time (EN) i Steps through time (SR)',
       'Video montaža u DaVinci Resolve-u',
-      'Grafički rad u Affinity Photo'
+      'Grafički rad u Affinity Photo',
+      'Vođenje društvenih mreža i marketing za lokalne biznise (Bambola Pizzeria, Keramika España)',
+      'Izrada i isporuka web sajta za klijenta — dizajn, razvoj, deployment'
     ],
     labelSkills: 'Tech Stack / Veštine',
     skillProto: 'Prototipiranje',
@@ -713,6 +746,7 @@ const content = {
     labelWeb: 'Experience — Web Development',
     webPoints: [
       'Building web projects with C#, ASP.NET, SQL and MySQL',
+      'Personal projects: AI Council, AI Task Manager, AI Note Summarizer, Mini Booking System, Smart Notes REST API',
       'Frontend development with HTML, CSS, JavaScript and jQuery',
       'Database work with Supabase',
       'Website deployment via Cloudflare',
@@ -725,15 +759,24 @@ const content = {
       'Presented the final product to the jury'
     ],
     mindwave: [
-      'Reached the finals with a team project',
-      'Developed concept and solution in a competitive environment'
+      'Team collaboration on concept and solution in a competitive environment',
+      'Applied and participated with a team project'
     ],
+    mindwaveBadge: 'Participant',
     makeitday: [
       '"Build Your First AI Chatbot" workshop — Metropolitan University',
       'Hands-on development of an AI chatbot from scratch',
       'Competed against other participants and presented the solution'
     ],
     labelAI: 'AI / Automation',
+    aicTitle: 'AI Council',
+    aicDate: 'Personal Project',
+    aicSub: 'Desktop app · Electron · Multi-AI browser',
+    aicPoints: [
+      'Runs multiple AI assistants (ChatGPT, Claude, Gemini, Grok, Perplexity, Copilot) side by side, each in its own pane',
+      'Isolated session per pane, so accounts don’t share cookies/logins',
+      'Saved pane layout presets (Research / Writing / Mixed) and persistent window state'
+    ],
     aiPoints: [
       'Deep understanding of AI concepts, tools and architectures — applied in daily practice',
       'Multiple private AI projects in development — automations, experimental tools and systems',
@@ -744,9 +787,11 @@ const content = {
     labelContent: 'Content Creation',
     contentPoints: [
       'Managed a TikTok business account — 1M+ views in the first month',
-      'Growing a YouTube channel (@STTStepsThroughTime)',
+      'Running two history-content YouTube channels — Steps Through Time (EN) and Steps through time (SR)',
       'Video editing in DaVinci Resolve',
-      'Graphic work in Affinity Photo'
+      'Graphic work in Affinity Photo',
+      'Social media management and marketing for local businesses (Bambola Pizzeria, Keramika España)',
+      'Built and delivered a website for a client — design, development, deployment'
     ],
     labelSkills: 'Tech Stack / Skills',
     skillProto: 'Rapid Prototyping',
@@ -775,7 +820,11 @@ function setLang(lang) {
   document.getElementById('dti-badge').textContent = d.dtiBadge;
   document.getElementById('label-web').textContent = d.labelWeb;
   document.getElementById('label-hack').textContent = d.labelHack;
+  document.getElementById('mindwave-badge').textContent = d.mindwaveBadge;
   document.getElementById('label-ai').textContent = d.labelAI;
+  document.getElementById('aic-title').textContent = d.aicTitle;
+  document.getElementById('aic-date').textContent = d.aicDate;
+  document.getElementById('aic-sub').textContent = d.aicSub;
   document.getElementById('label-content').textContent = d.labelContent;
   document.getElementById('label-skills').textContent = d.labelSkills;
   document.getElementById('skill-team').textContent = d.skillTeam;
@@ -788,6 +837,7 @@ function setLang(lang) {
   setPoints('campfire26-points', d.campfire26);
   setPoints('makeitday-points', d.makeitday);
   setPoints('mindwave-points', d.mindwave);
+  setPoints('aic-points', d.aicPoints);
   setPoints('ai-points', d.aiPoints);
   setPoints('content-points', d.contentPoints);
   document.getElementById('btn-sr').classList.toggle('active', lang === 'sr');
