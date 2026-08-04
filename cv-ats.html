@@ -38,6 +38,14 @@
   .skills-list { margin-left: 0; list-style: none; }
   .skills-list li { display: inline; }
   .skills-list li:not(:last-child)::after { content: ", "; }
+  @page { size: A4; margin: 13mm 15mm; }
+  @media print {
+    body { max-width: none; padding: 0; font-size: 10.5pt; line-height: 1.35; }
+    h2 { margin-top: 13px; }
+    h3 { page-break-after: avoid; }
+    h3, .entry-meta, li { page-break-inside: avoid; }
+    ul { page-break-before: avoid; }
+  }
 </style>
 </head>
 <body>
@@ -100,8 +108,6 @@
 
   <h2>Projects</h2>
   <ul>
-    <li><strong>The Cognitive Exam</strong> &mdash; Released game jam title. Role: 2D assets and sound effects (credited as Luka372). thylala.itch.io/the-cognitive-exam</li>
-    <li><strong>Kartomania</strong> &mdash; Released game jam title. Role: 2D assets (credited as Luka372 / ThyLala). thylala.itch.io/kartomania</li>
     <li><strong>AI Council</strong> &mdash; Electron. Multi-pane desktop app running ChatGPT, Claude, Gemini and more side by side. Built independently with AI assistance. github.com/lukabraske37/ai-council</li>
     <li><strong>AI Note Summarizer</strong> &mdash; React + OpenAI. Summarizes text into key points and study notes. ai-note-summarizer.pages.dev</li>
     <li><strong>Mini Booking System</strong> &mdash; React. Appointment booking webapp with an AI assistant and admin dashboard. mini-booking-system.pages.dev</li>
