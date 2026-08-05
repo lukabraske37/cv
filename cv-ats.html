@@ -51,7 +51,7 @@
 <body>
 
   <h1>Luka Brasanac</h1>
-  <div class="subtitle">IT Student &mdash; Elektrotehnicka skola &quot;Zemun&quot;, Electrotechnical Engineer of Information Technologies (3rd of 5 years)</div>
+  <div class="subtitle">IT Student &mdash; Elektrotehnicka skola &quot;Zemun&quot;, Electrotechnical Engineer of Information Technologies (4th of 4 years)</div>
   <div class="contact">
     <span>lukabrasanac2008@gmail.com</span>
     <span>github.com/lukabraske37</span>
@@ -59,7 +59,7 @@
     <span>itch.io/luka372</span>
   </div>
 
-  <p>18-year-old IT student building projects since 2021, from 2D game assets to web applications and AI tools. Works mostly in C# and Microsoft SQL Server, is learning Unity, and runs personal projects independently with AI assistance. Created the 2D assets and sound effects for two released game jam games, and was part of the 4-person team that placed 2nd at Campfire Yettel Hackathon 2026.</p>
+  <p><span id="age">18</span>-year-old IT student building projects since 2021, from 2D game assets to web applications and AI tools. Works mostly in C# and Microsoft SQL Server, is learning Unity, and runs personal projects independently with AI assistance. Created the 2D assets and sound effects for two released game jam games, and was part of the 4-person team that placed 2nd at Campfire Yettel Hackathon 2026.</p>
 
   <h2>Experience</h2>
 
@@ -131,14 +131,28 @@
   </ul>
   <p style="margin-bottom: 2px;"><strong>Learning / basics:</strong></p>
   <ul class="skills-list">
-    <li>Unity</li><li>ASP.NET</li><li>MySQL</li><li>Supabase</li><li>JavaScript</li><li>HTML &amp; CSS</li>
+    <li>Unity</li><li>ASP.NET</li><li>MySQL</li><li>Supabase</li><li>JavaScript</li><li>jQuery</li><li>HTML &amp; CSS</li>
     <li>React</li><li>Node.js</li><li>Electron</li><li>OpenAI API</li><li>Render</li>
     <li>Unreal Engine</li><li>Roblox Studio</li><li>Blender</li><li>DaVinci Resolve</li>
   </ul>
 
   <h2>Education</h2>
   <h3>Elektrotehnicka skola &quot;Zemun&quot;</h3>
-  <div class="entry-meta">Electrotechnical Engineer of Information Technologies &mdash; 3rd of 5 years</div>
+  <div class="entry-meta">Electrotechnical Engineer of Information Technologies &mdash; 4th of 4 years</div>
+
+<script>
+  // Datum rodjenja je jedino mesto gde se godine upisuju; broj se sam preracuna.
+  (function () {
+    var birth = new Date(2008, 3, 4); // 4. april 2008.
+    var now = new Date();
+    var age = now.getFullYear() - birth.getFullYear();
+    if (now.getMonth() < birth.getMonth() ||
+        (now.getMonth() === birth.getMonth() && now.getDate() < birth.getDate())) {
+      age--;
+    }
+    document.getElementById('age').textContent = age;
+  })();
+</script>
 
 </body>
 </html>

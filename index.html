@@ -641,6 +641,7 @@
       <span class="skill-tag">ASP.NET</span>
       <span class="skill-tag">MySQL</span>
       <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">jQuery</span>
       <span class="skill-tag">HTML & CSS</span>
       <span class="skill-tag">React</span>
       <span class="skill-tag">Node.js</span>
@@ -665,10 +666,10 @@
 <script>
 const content = {
   sr: {
-    ageBadge: '18 GODINA',
+    ageBadge: '{age} GODINA',
     schoolText: 'Elektrotehnička škola "Zemun"',
     labelProfile: 'Profil',
-    profileText: 'Učenik IT smera (18 godina) koji od 2021. pravi projekte — od 2D asset-a za igrice, preko web aplikacija, do AI alata. Trenutno najviše radi u C#-u i Microsoft SQL-u, uči Unity, i samostalno vodi projekte uz AI asistenciju. Radio je 2D asset-e i zvuk za dve objavljene game jam igrice (<em>The Cognitive Exam</em>, <em>Kartomania</em>) i bio deo tima koji je osvojio 2. mesto na Campfire Yettel hakatonu 2026.',
+    profileText: 'Učenik IT smera ({age} godina) koji od 2021. pravi projekte — od 2D asset-a za igrice, preko web aplikacija, do AI alata. Trenutno najviše radi u C#-u i Microsoft SQL-u, uči Unity, i samostalno vodi projekte uz AI asistenciju. Radio je 2D asset-e i zvuk za dve objavljene game jam igrice (<em>The Cognitive Exam</em>, <em>Kartomania</em>) i bio deo tima koji je osvojio 2. mesto na Campfire Yettel hakatonu 2026.',
     labelHighlights: 'Istaknuto',
     stat1: 'TikTok pregleda u prvom mesecu upravljanja biznis nalogom',
     stat2: 'Mesto — Campfire Yettel Hackathon 2026',
@@ -761,10 +762,10 @@ const content = {
     footerBuilt: 'izgrađeno sa HTML / CSS / JS'
   },
   en: {
-    ageBadge: '18 YEARS OLD',
+    ageBadge: '{age} YEARS OLD',
     schoolText: 'Electrotechnical School "Zemun"',
     labelProfile: 'Profile',
-    profileText: 'An 18-year-old IT student building projects since 2021 — from 2D game assets to web applications and AI tools. Currently works mostly in C# and Microsoft SQL, is learning Unity, and runs his own projects with AI assistance. Made the 2D assets and sound for two released game jam games (<em>The Cognitive Exam</em>, <em>Kartomania</em>) and was part of the team that placed 2nd at the Campfire Yettel Hackathon 2026.',
+    profileText: '{An} {age}-year-old IT student building projects since 2021 — from 2D game assets to web applications and AI tools. Currently works mostly in C# and Microsoft SQL, is learning Unity, and runs his own projects with AI assistance. Made the 2D assets and sound for two released game jam games (<em>The Cognitive Exam</em>, <em>Kartomania</em>) and was part of the team that placed 2nd at the Campfire Yettel Hackathon 2026.',
     labelHighlights: 'Highlights',
     stat1: 'TikTok views in the first month managing a business account',
     stat2: 'Place — Campfire Yettel Hackathon 2026',
@@ -858,12 +859,35 @@ const content = {
   }
 };
 
+// Datum rođenja — jedino mesto gde se godine upisuju. Sve ostalo se računa samo.
+const BIRTH_DATE = new Date(2008, 3, 4); // 4. april 2008.
+
+function currentAge() {
+  const now = new Date();
+  let age = now.getFullYear() - BIRTH_DATE.getFullYear();
+  const beforeBirthday =
+    now.getMonth() < BIRTH_DATE.getMonth() ||
+    (now.getMonth() === BIRTH_DATE.getMonth() && now.getDate() < BIRTH_DATE.getDate());
+  if (beforeBirthday) age--;
+  return age;
+}
+
+function withAge(text) {
+  const age = String(currentAge());
+  // "an" ide uz brojeve koji se izgovaraju sa samoglasnikom: 8, 11, 18, 80-89...
+  const an = /^(8|11|18)/.test(age);
+  return text
+    .split('{age}').join(age)
+    .split('{An}').join(an ? 'An' : 'A')
+    .split('{an}').join(an ? 'an' : 'a');
+}
+
 function setLang(lang) {
   const d = content[lang];
-  document.getElementById('age-badge').textContent = d.ageBadge;
+  document.getElementById('age-badge').textContent = withAge(d.ageBadge);
   document.getElementById('school-text').innerHTML = d.schoolText;
   document.getElementById('label-profile').textContent = d.labelProfile;
-  document.getElementById('profile-text').innerHTML = d.profileText;
+  document.getElementById('profile-text').innerHTML = withAge(d.profileText);
   document.getElementById('label-highlights').textContent = d.labelHighlights;
   document.getElementById('stat1-label').textContent = d.stat1;
   document.getElementById('stat2-label').textContent = d.stat2;
@@ -911,6 +935,8 @@ function setLang(lang) {
 function setPoints(id, points) {
   document.getElementById(id).innerHTML = points.map(p => `<li>${p}</li>`).join('');
 }
+
+setLang('sr');
 </script>
 </body>
 </html>
